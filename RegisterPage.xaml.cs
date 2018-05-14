@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using slnLoginPage.Common;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,22 @@ namespace slnLoginPage
     /// </summary>
     public sealed partial class RegisterPage : Page
     {
+        Database database;
+
         public RegisterPage()
         {
             this.InitializeComponent();
+            database = new Database();
+        }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            database.Register(new User()
+            {
+                UserName = txtUsername.Text.Trim(),
+                Password = pwbPassword.Password,
+                Email = txtEmail.Text.Trim()
+            });
         }
     }
 }
