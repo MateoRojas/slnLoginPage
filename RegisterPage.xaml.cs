@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using slnLoginPage.Common;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,14 +32,23 @@ namespace slnLoginPage
             database = new Database();
         }
 
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        private async void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            database.Register(new User()
+            int code = database.Register(new User()
             {
                 UserName = txtUsername.Text.Trim(),
                 Password = pwbPassword.Password,
                 Email = txtEmail.Text.Trim()
             });
+
+            if(code == -1)
+            {
+                await new MessageDialog("Register Failed!").ShowAsync();
+
+            } else
+            {
+                await new MessageDialog("Register Completed!").ShowAsync();
+            }
         }
     }
 }

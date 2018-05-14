@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="28,133,0,0" Text="Username" VerticalAlignment="Top" Height="28" Width="299"/>
         <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="28,277,0,0" VerticalAlignment="Top" Width="110"/>
-        <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="217,277,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="217,277,0,0" VerticalAlignment="Top" Width="110" Click="btnRegister_Click"/>
         <CheckBox x:Name="ckbRemember" Content="Remember" HorizontalAlignment="Left" Margin="28,233,0,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="pwbPassword" PlaceholderText="Password" HorizontalAlignment="Left" Margin="28,186,0,0" VerticalAlignment="Top" Width="299"/>
 

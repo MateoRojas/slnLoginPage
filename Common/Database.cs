@@ -24,12 +24,21 @@ namespace slnLoginPage.Common
 
         public int Register(User user)
         {
-            return connection.Insert(new User()
+            try
             {
-                UserName = user.UserName,
-                Email = user.Email,
-                Password = user.Password
-            });
+                connection.Insert(new User()
+                {
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    Password = user.Password
+                });
+            }
+            catch (SQLiteException exception)
+            {
+                return -1;
+            }
+
+            return 1;
         }
 
         public bool Login(string username, string password)
